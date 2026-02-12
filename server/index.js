@@ -80,7 +80,7 @@ app.get('/volunteers/:id', async (req, res) => {
  */
 app.post('/addvolunteer', async (req, res) => {
     const newVolunteer = req.body
-
+    console.log(newVolunteer);
     const volunteer = await sql `
         INSERT INTO
             volunteers

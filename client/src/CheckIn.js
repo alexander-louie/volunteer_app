@@ -8,7 +8,7 @@ const BASE_URL = 'http://localhost:8080/volunteers';
 const CardContainer = ( data ) => {
   <div className='card-container'>
     {data.length > 0 ? data.map((item) => {
-      <Card data={item} key={item.volunteer_id}/>
+      return (<Card data={item} key={item.volunteer_id}/>)
     })
     : <p>Error in fetching data</p>
     }
@@ -63,9 +63,9 @@ export default function CheckIn() {
           'Content-Type': 'application/json'
         }
       })
-      console.log(res.data);
+      // console.log(res.data);
       setData(res.data);
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       console.error(err);
     }
@@ -73,7 +73,7 @@ export default function CheckIn() {
 
   useEffect(() => {
     getVolunteer();
-  })
+  }, [])
 
   return (
     <>
